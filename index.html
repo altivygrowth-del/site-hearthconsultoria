@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="pt-BR"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Hearth Consultoria Imobiliária</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Consultoria e intermediação de crédito imobiliário. Conectando pessoas à conquista do seu imóvel.">
@@ -81,7 +81,37 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:860px){.nav{display:none}}
 
 /* ---------- Hero ---------- */
-.hero{padding-block:clamp(48px,8vw,104px) clamp(56px,8vw,96px)}
+/* Hero: a dark stage of fluted gold "curtain" pleats lit from below — same look in both themes */
+.hero{
+  --ink:#F5EFE1; --muted:#CDBF9F; --gold:#DDAA3C; --gold-soft:#F0CB74;
+  --surface:rgba(22,16,6,.62); --line:rgba(245,225,180,.2);
+  position:relative;isolation:isolate;overflow:hidden;color:var(--ink);
+  margin:12px max(12px,env(safe-area-inset-right,0px)) 0 max(12px,env(safe-area-inset-left,0px));
+  border-radius:28px;
+  padding-block:clamp(56px,8vw,112px) clamp(56px,8vw,104px);
+  background-color:#0B0904;
+  background-image:
+    linear-gradient(180deg,rgba(9,7,3,.92) 0%,rgba(9,7,3,.35) 38%,transparent 60%),
+    radial-gradient(ellipse 55% 50% at 50% 108%,rgba(240,190,80,.62),transparent 72%),
+    radial-gradient(ellipse 35% 45% at 76% 55%,rgba(221,170,60,.28),transparent 70%),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.6) 0px,rgba(255,206,120,.13) 34px,rgba(255,226,160,.05) 48px,rgba(0,0,0,.6) 72px),
+    linear-gradient(180deg,#0D0A05 0%,#2B1E08 55%,#5C3F0F 100%);
+}
+.hero::before{content:"";position:absolute;inset:auto 10% -30% 10%;height:70%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(255,205,105,.38),transparent 65%);filter:blur(10px)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(240,203,116,.18),inset 0 -80px 120px -60px rgba(0,0,0,.6)}
+.hero .btn-solid{background:var(--gold);color:#1A1306}
+.hero .btn-solid:hover{background:var(--gold-soft)}
+.hero .btn-line{border-color:rgba(245,239,225,.55)}
+.hero .btn-line:hover{background:var(--ink);color:#1A1306}
+.hero .tracker{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.hero .track .tick{background:#1A1306}
+@media (prefers-reduced-motion:no-preference){
+  .hero::before{animation:glow 7s ease-in-out infinite}
+  @keyframes glow{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+}
+@media (max-width:480px){.hero{border-radius:20px;margin-inline:max(8px,env(safe-area-inset-left,0px)) max(8px,env(safe-area-inset-right,0px))}}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:center}
 .hero-copy{display:flex;flex-direction:column;gap:28px;min-width:0}
 .hero h1{font-size:var(--step-4);font-weight:700;letter-spacing:-.035em}
@@ -89,14 +119,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero-lede{font-size:var(--step-1);color:var(--muted);max-width:52ch}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
 
-.hero-visual{position:relative;aspect-ratio:4/5;max-width:100%;background:var(--green);overflow:hidden;border-radius:2px}
+.hero-visual{position:relative;display:flex;flex-direction:column;align-items:center;max-width:100%;min-width:0}
+.ring{position:relative;width:min(100%,480px);aspect-ratio:1;max-width:100%}
 /* Spirograph: rotated rounded squares from the brand mark, built in script */
 .spiro rect{fill:none;stroke:var(--gold);stroke-width:2.4;stroke-linejoin:round}
 .spiro .spin{transform-origin:0 0}
-.hero-visual .spiro{position:absolute;left:50%;top:42%;width:92%;max-width:none;aspect-ratio:1;translate:-50% -50%}
-.hero-visual .spiro rect{stroke-width:2}
-.hero-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--gold) 16%,transparent),transparent 55%)}
-.spiro-mark{position:absolute;left:50%;top:42%;translate:-50% -50%;font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,4.6vw,3.4rem);letter-spacing:-.04em;color:var(--gold-soft);line-height:1;pointer-events:none}
+.ring .spiro{position:absolute;inset:0;width:100%;height:100%}
+.ring .spiro rect{stroke-width:2}
+.spiro-mark{position:absolute;left:50%;top:50%;translate:-50% -50%;font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,4.6vw,3.4rem);letter-spacing:-.04em;color:var(--gold-soft);line-height:1;pointer-events:none}
 @media (prefers-reduced-motion:no-preference){
   .spiro.drawn rect{stroke-dasharray:var(--per);animation:draw 1.8s cubic-bezier(.55,.1,.2,1) both;animation-delay:var(--d)}
   .spiro .spin{animation:spin 80s linear infinite}
@@ -107,29 +137,32 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   @keyframes pulse{0%,100%{opacity:.9}50%{opacity:.55}}
 }
 
-.tracker{position:absolute;left:8%;right:8%;bottom:7%;background:var(--surface);color:var(--ink);padding:20px 22px;border-radius:2px;box-shadow:0 24px 48px -24px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:14px}
+.tracker{--p:.5;position:relative;width:min(100%,440px);background:var(--surface);color:var(--ink);padding:20px 22px 18px;border:1px solid var(--line);border-radius:4px;box-shadow:0 24px 48px -28px rgba(0,0,0,.45);display:flex;flex-direction:column;gap:14px}
 .tracker-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .tracker-head strong{font-family:var(--font-display);font-weight:700;font-size:1.05rem}
 .tracker-head span{font-size:.72rem;color:var(--muted)}
-.tracker ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-.tracker li{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:center;font-size:.875rem;transition:color .5s}
-.tracker .dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--line);transition:background .5s,border-color .5s,box-shadow .5s}
-.tracker .st{transition:color .5s}
-.tracker-bar{height:2px;background:var(--line);position:relative;overflow:hidden}
-.tracker-bar i{position:absolute;inset:0;background:var(--gold);transform-origin:left;transform:scaleX(var(--p,.5));transition:transform .9s cubic-bezier(.3,.7,.2,1)}
-.tracker .done .dot{background:var(--green);border-color:var(--green)}
-.tracker .now .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 25%,transparent)}
-.tracker .todo{color:var(--muted)}
-.tracker .st{font-size:.72rem;color:var(--muted)}
-.tracker .now .st{color:var(--gold);font-weight:600}
-:root[data-theme="dark"] .tracker .done .dot{background:var(--gold-soft);border-color:var(--gold-soft)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tracker .done .dot{background:var(--gold-soft);border-color:var(--gold-soft)}}
+.tracker-now{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.875rem}
+.tracker-now b{font-weight:600;color:var(--gold)}
+.tracker-now span{color:var(--muted);font-size:.75rem;font-variant-numeric:tabular-nums}
+.track{position:relative;height:6px;margin:4px 6px;background:var(--line);border-radius:6px}
+.track .fill{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p) * 100%);border-radius:inherit;background:linear-gradient(90deg,var(--gold-soft),var(--gold));overflow:hidden}
+.track .fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);background-size:60px 100%;background-repeat:no-repeat;animation:shine 1.6s linear infinite}
+.track .tick{position:absolute;top:50%;left:var(--x);width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--line);translate:-50% -50%;transition:background .3s,border-color .3s}
+.track .tick.on{background:var(--gold);border-color:var(--gold)}
+.track .head{position:absolute;top:50%;left:calc(var(--p) * 100%);width:14px;height:14px;border-radius:50%;background:var(--gold);translate:-50% -50%;box-shadow:0 0 0 5px color-mix(in srgb,var(--gold) 22%,transparent)}
+.track-labels{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);font-size:.7rem;color:var(--muted)}
+.track-labels li{text-align:center;transition:color .3s}
+.track-labels li:first-child{text-align:left}
+.track-labels li:last-child{text-align:right}
+.track-labels li.on{color:var(--ink);font-weight:600}
+@keyframes shine{from{background-position:-60px 0}to{background-position:calc(100% + 60px) 0}}
+@media (prefers-reduced-motion:reduce){.track .fill::after{animation:none;display:none}}
 
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr}
-  .hero-visual{aspect-ratio:5/4}
+  .ring{width:min(100%,400px)}
 }
-@media (max-width:480px){.hero-visual{aspect-ratio:4/5}.tracker{left:5%;right:5%;padding:16px}}
+@media (max-width:480px){.tracker{padding:16px}.track-labels{font-size:.62rem}}
 
 /* ---------- Editorial sections ---------- */
 .section{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
@@ -295,17 +328,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       </div>
 
       <div class="hero-visual" role="img" aria-label="Ilustração: acompanhamento das etapas de um financiamento imobiliário">
-        <svg class="spiro" data-spiro="20" data-size="250" data-rx="26" viewBox="-185 -185 370 370" aria-hidden="true"><g class="spin"></g></svg>
-        <span class="spiro-mark" aria-hidden="true">H</span>
         <div class="tracker">
           <div class="tracker-head"><strong>Acompanhamento da operação</strong><span>exemplo</span></div>
-          <div class="tracker-bar" aria-hidden="true"><i></i></div>
-          <ol>
-            <li class="done"><span class="dot"></span>Análise do perfil<span class="st">concluída</span></li>
-            <li class="done"><span class="dot"></span>Proposta no banco<span class="st">aprovada</span></li>
-            <li class="now"><span class="dot"></span>Avaliação do imóvel<span class="st">em andamento</span></li>
-            <li class="todo"><span class="dot"></span>Emissão do contrato<span class="st">a seguir</span></li>
-            <li class="todo"><span class="dot"></span>Formalização<span class="st">a seguir</span></li>
+          <div class="tracker-now"><b id="tracker-stage">Avaliação do imóvel</b><span id="tracker-pct">50%</span></div>
+          <div class="track" aria-hidden="true">
+            <i class="fill"></i>
+            <i class="tick" style="--x:0%"></i><i class="tick" style="--x:25%"></i><i class="tick" style="--x:50%"></i><i class="tick" style="--x:75%"></i><i class="tick" style="--x:100%"></i>
+            <i class="head"></i>
+          </div>
+          <ol class="track-labels">
+            <li>Perfil</li><li>Proposta</li><li>Avaliação</li><li>Contrato</li><li>Assinatura</li>
           </ol>
         </div>
       </div>
@@ -520,22 +552,39 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   var heroSpiro = document.querySelector('.hero-visual .spiro');
   if (heroSpiro) heroSpiro.classList.add('drawn');
 
-  /* Tracker: steps advance through the financing stages */
-  var items = Array.prototype.slice.call(document.querySelectorAll('.tracker li'));
-  var bar = document.querySelector('.tracker-bar i');
-  var text = {done:'concluída', now:'em andamento', todo:'a seguir'};
-  var k = 2;
-  function paint(){
-    items.forEach(function(li, i){
-      var st = i < k ? 'done' : (i === k ? 'now' : 'todo');
-      li.className = st;
-      li.querySelector('.st').textContent = text[st];
-    });
-    if (bar) bar.style.setProperty('--p', Math.min(1, (k + .5) / items.length));
-  }
-  paint();
-  if (!reduce && items.length){
-    setInterval(function(){ k = (k + 1) % (items.length + 1); paint(); }, 2600);
+  /* Tracker: a bar that travels from the first stage to the last, then restarts */
+  var tracker = document.querySelector('.tracker');
+  if (tracker){
+    var ticks = tracker.querySelectorAll('.tick');
+    var labels = tracker.querySelectorAll('.track-labels li');
+    var stageEl = document.getElementById('tracker-stage');
+    var pctEl = document.getElementById('tracker-pct');
+    var names = ['Análise do perfil','Proposta no banco','Avaliação do imóvel','Emissão do contrato','Assinatura do contrato'];
+    var last = -1;
+    function setP(p){
+      tracker.style.setProperty('--p', p.toFixed(4));
+      var idx = Math.min(4, Math.floor(p * 4 + 1e-6));
+      for (var i = 0; i < ticks.length; i++){
+        var on = p >= i/4 - 1e-6;
+        ticks[i].classList.toggle('on', on);
+        labels[i].classList.toggle('on', on);
+      }
+      if (idx !== last || p >= 1){
+        stageEl.textContent = p >= 1 ? 'Financiamento concluído' : names[idx];
+        last = idx;
+      }
+      pctEl.textContent = Math.round(p * 100) + '%';
+    }
+    if (reduce){ setP(.5); }
+    else {
+      var RUN = 9000, HOLD = 1800, t0 = performance.now();
+      (function loop(now){
+        var t = (now - t0) % (RUN + HOLD);
+        var x = Math.min(1, t / RUN);
+        setP(x < .5 ? 2*x*x : 1 - Math.pow(-2*x + 2, 2) / 2);
+        requestAnimationFrame(loop);
+      })(t0);
+    }
   }
 
   /* Staggered reveals on scroll (anything already on screen stays visible) */
