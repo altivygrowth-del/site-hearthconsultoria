@@ -60,6 +60,11 @@ a{color:inherit}
   background:linear-gradient(90deg,var(--logo-a) 0%,var(--logo-a) 18%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .logo-word::after{content:"";position:absolute;left:.78em;right:.02em;top:.2em;height:.085em;
   background:linear-gradient(90deg,var(--logo-a),var(--gold))}
+.logo-img{display:block;height:48px;width:auto;max-width:100%}
+.site-header.scrolled .logo-img{height:40px}
+.site-header .logo-img{transition:height .3s}
+.site-footer .logo-img{height:64px}
+@media (max-width:480px){.logo-img{height:40px}}
 .logo-sub{font-family:var(--font-label);font-weight:300;font-size:.5rem;letter-spacing:.31em;color:var(--muted);padding-left:.1em}
 
 /* ---------- Header ---------- */
@@ -335,8 +340,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="#topo" aria-label="Hearth Consultoria Imobiliária — início">
-      <span class="logo-word">Hearth</span>
-      <span class="logo-sub">CONSULTORIA IMOBILIÁRIA</span>
+      <img class="logo-img" src="logo-hearth.png" width="720" height="305" alt="Hearth Consultoria Imobiliária">
     </a>
     <nav class="nav" aria-label="Seções">
       <a href="#quem-somos">Quem somos</a>
@@ -612,8 +616,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <footer class="site-footer">
   <div class="wrap">
     <a class="logo" href="#topo" aria-label="Voltar ao início">
-      <span class="logo-word">Hearth</span>
-      <span class="logo-sub">CONSULTORIA IMOBILIÁRIA</span>
+      <img class="logo-img" src="logo-hearth.png" width="720" height="305" alt="Hearth Consultoria Imobiliária">
     </a>
     <div class="fine">
       <p class="tag">Conectando pessoas à conquista do seu imóvel.</p>
