@@ -329,7 +329,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .channels{margin:0;display:flex;flex-direction:column;border-top:1px solid color-mix(in srgb,var(--on-green) 22%,transparent)}
 .channels > div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding-block:18px;border-bottom:1px solid color-mix(in srgb,var(--on-green) 14%,transparent);align-items:baseline}
 .channels dt{font-family:var(--font-label);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--gold-soft)}
-.channels dd{margin:0;font-size:1.05rem;color:var(--on-green);overflow-wrap:anywhere;user-select:all}
+.channels dd{margin:0;font-size:1.05rem;color:var(--on-green);overflow-wrap:anywhere}
+.channels dd a{text-decoration:none;background:linear-gradient(var(--gold-soft),var(--gold-soft)) left bottom/0 1px no-repeat;transition:background-size .35s,color .25s}
+.channels dd a:hover,.channels dd a:focus-visible{color:var(--gold-soft);background-size:100% 1px}
 .channels dd.pending{color:var(--on-green-muted);font-style:italic}
 @media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
 @media (max-width:420px){.channels > div{grid-template-columns:1fr;gap:4px}}
@@ -608,10 +610,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <p>Mais do que intermediar financiamentos, conectamos oportunidades à realização de grandes conquistas. Fale com a nossa equipe para encaminhar um cliente ou iniciar uma parceria.</p>
       </div>
       <dl class="channels">
-        <div><dt>Telefone</dt><dd class="pending">[Inserir telefone]</dd></div>
-        <div><dt>E-mail</dt><dd class="pending">[Inserir e-mail]</dd></div>
-        <div><dt>Instagram</dt><dd class="pending">[Inserir perfil]</dd></div>
-        <div><dt>Localização</dt><dd class="pending">[Inserir cidade/UF]</dd></div>
+        <div><dt>Telefone</dt><dd><a href="tel:+5541987130593">(41) 9 8713-0593</a></dd></div>
+        <div><dt>E-mail</dt><dd><a href="mailto:hearthconsultoria@gmail.com">hearthconsultoria@gmail.com</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/hearthconsultoria/" target="_blank" rel="noopener">@hearthconsultoria</a></dd></div>
+        <div><dt>Localização</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+Paran%C3%A1+620+Guaratuba+PR" target="_blank" rel="noopener">Avenida Paraná, 620 – Sala 03<br>Guaratuba – PR</a></dd></div>
       </dl>
     </div>
   </section>
