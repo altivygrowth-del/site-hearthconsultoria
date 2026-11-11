@@ -320,7 +320,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:760px){.vc{grid-template-columns:1fr}.vc > div + div{border-left:0;border-top:1px solid var(--line)}}
 
 /* Contact */
-.contact .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:start}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,72px);align-items:start}
 .contact .wrap > *{min-width:0}
 .contact h2{font-size:var(--step-4);font-weight:700;color:var(--on-green);max-width:16ch}
 .contact h2 em{font-style:normal;font-weight:300;color:var(--gold-soft)}
@@ -333,8 +333,51 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .channels dd a{text-decoration:none;background:linear-gradient(var(--gold-soft),var(--gold-soft)) left bottom/0 1px no-repeat;transition:background-size .35s,color .25s}
 .channels dd a:hover,.channels dd a:focus-visible{color:var(--gold-soft);background-size:100% 1px}
 .channels dd.pending{color:var(--on-green-muted);font-style:italic}
-@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+@media (max-width:960px){.contact .wrap{grid-template-columns:1fr}}
 @media (max-width:420px){.channels > div{grid-template-columns:1fr;gap:4px}}
+.contact-intro .channels{margin-top:12px}
+
+/* Contact form */
+.form-card{background:var(--surface);color:var(--ink);border-radius:20px;padding:clamp(22px,3vw,36px);box-shadow:0 40px 80px -40px rgba(0,0,0,.6);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent)}
+.form-card form{display:flex;flex-direction:column;gap:16px}
+.form-head{display:flex;flex-direction:column;gap:6px;margin-bottom:4px}
+.form-head h3,.form-done h3{font-size:var(--step-2);font-weight:700}
+.form-head p,.form-done p{color:var(--muted);font-size:.95rem}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.f-field{display:flex;flex-direction:column;gap:6px;min-width:0;margin:0;padding:0;border:0}
+.f-full{grid-column:1 / -1}
+.f-label{font-size:.8rem;font-weight:600;color:var(--ink);padding:0}
+.f-label small{font-weight:400;color:var(--muted)}
+.f-section{font-family:var(--font-label);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;color:var(--gold);padding-top:10px;border-top:1px solid var(--line)}
+.form-card input[type=text],.form-card input[type=tel],.form-card input[type=email],.form-card input[type=date],.form-card select,.form-card textarea{
+  width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.7em .85em;transition:border-color .2s,box-shadow .2s}
+.form-card textarea{resize:vertical;min-height:84px}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 22%,transparent)}
+.form-card .invalid{border-color:#C2412D !important;box-shadow:0 0 0 3px rgba(194,65,45,.15) !important}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;border:0}
+.seg legend{margin-bottom:8px}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-block;padding:.6em 1.1em;border-radius:999px;border:1px solid var(--line);font-size:.9rem;transition:background .2s,border-color .2s,color .2s}
+.seg label:hover span{border-color:var(--gold)}
+.seg input:checked + span{background:var(--gold);border-color:var(--gold);color:#1A1306;font-weight:600}
+.seg input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+.seg-sm span{padding:.45em 1.1em}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--muted);cursor:pointer}
+.consent input{margin-top:.25em;accent-color:var(--gold);width:16px;height:16px;flex:none}
+.f-error{color:#C2412D;font-size:.88rem;font-weight:600}
+.f-submit{justify-content:center;background:var(--gold);color:#1A1306;border-radius:999px;padding:.95em 1.6em;font-size:1rem;transition:background .2s,transform .2s}
+.f-submit:hover{background:var(--gold-soft);transform:translateY(-1px)}
+.f-fine{font-size:.75rem;color:var(--muted);text-align:center}
+.form-done{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.form-done[hidden]{display:none}
+.done-ico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#1A1306;font-weight:800;font-size:1.2rem}
+.done-actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn-outline-light{border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:.95em 1.6em}
+.btn-outline-light:hover{border-color:var(--gold);color:var(--gold)}
+.done-preview{width:100%;margin:0;max-height:220px;overflow:auto;white-space:pre-wrap;font:.82rem/1.55 var(--font-body);color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.link-btn{background:none;border:0;padding:0;font:inherit;font-size:.9rem;color:var(--gold);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:560px){.f-grid{grid-template-columns:1fr}}
 
 /* Footer */
 .site-footer{padding-block:40px 48px;border-top:1px solid var(--line)}
@@ -608,13 +651,131 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <span class="label" style="color:var(--gold-soft)">Contato comercial</span>
         <h2>Crédito imobiliário com <em>estratégia, proximidade</em> e confiança.</h2>
         <p>Mais do que intermediar financiamentos, conectamos oportunidades à realização de grandes conquistas. Fale com a nossa equipe para encaminhar um cliente ou iniciar uma parceria.</p>
-      </div>
       <dl class="channels">
         <div><dt>Telefone</dt><dd><a href="tel:+5541987130593">(41) 9 8713-0593</a></dd></div>
         <div><dt>E-mail</dt><dd><a href="mailto:hearthconsultoria@gmail.com">hearthconsultoria@gmail.com</a></dd></div>
         <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/hearthconsultoria/" target="_blank" rel="noopener">@hearthconsultoria</a></dd></div>
         <div><dt>Localização</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+Paran%C3%A1+620+Guaratuba+PR" target="_blank" rel="noopener">Avenida Paraná, 620 – Sala 03<br>Guaratuba – PR</a></dd></div>
       </dl>
+      </div>
+
+      <div class="form-card" id="encaminhar">
+        <form id="lead-form" novalidate>
+          <div class="form-head">
+            <h3>Encaminhe uma mensagem</h3>
+            <p>Preencha os dados e envie direto para a nossa equipe pelo WhatsApp ou por e-mail.</p>
+          </div>
+
+          <fieldset class="seg">
+            <legend class="f-label">Quem está enviando?</legend>
+            <label><input type="radio" name="perfil" id="perfil-parceiro" value="Imobiliária / corretor" checked><span>Imobiliária ou corretor</span></label>
+            <label><input type="radio" name="perfil" id="perfil-cliente" value="Comprador"><span>Sou o comprador</span></label>
+          </fieldset>
+
+          <div class="f-group" data-show="parceiro">
+            <div class="f-field f-full">
+              <label for="f-empresa" class="f-label">Imobiliária ou corretor <small>(nome e CRECI)</small></label>
+              <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Ex.: Imobiliária Litoral – CRECI 12345">
+            </div>
+          </div>
+
+          <p class="f-section" id="sec-dados">Dados do cliente</p>
+          <div class="f-grid">
+            <div class="f-field f-full">
+              <label for="f-nome" class="f-label">Nome completo *</label>
+              <input id="f-nome" name="nome" type="text" autocomplete="name" required>
+            </div>
+            <div class="f-field">
+              <label for="f-cel" class="f-label">Celular com DDD *</label>
+              <input id="f-cel" name="celular" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(41) 9 0000-0000" required>
+            </div>
+            <div class="f-field">
+              <label for="f-email" class="f-label">E-mail *</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="f-field">
+              <label for="f-nasc" class="f-label">Data de nascimento</label>
+              <input id="f-nasc" name="nascimento" type="date">
+            </div>
+            <div class="f-field">
+              <label for="f-objetivo" class="f-label">O que precisa? *</label>
+              <select id="f-objetivo" name="objetivo" required>
+                <option value="">Selecione</option>
+                <option>Financiar um imóvel</option>
+                <option>Refinanciamento imobiliário</option>
+                <option>Portabilidade de financiamento</option>
+                <option>Despachante / documentação</option>
+                <option>Parceria com a Hearth</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="f-section">O imóvel</p>
+          <div class="f-grid">
+            <div class="f-field">
+              <label for="f-tipo" class="f-label">Tipo de imóvel</label>
+              <select id="f-tipo" name="tipo">
+                <option value="">Selecione</option>
+                <option>Apartamento</option><option>Casa</option><option>Terreno</option><option>Imóvel comercial</option><option>Outro</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="f-cidade" class="f-label">Cidade do imóvel</label>
+              <input id="f-cidade" name="cidade" type="text" placeholder="Ex.: Guaratuba – PR">
+            </div>
+            <div class="f-field">
+              <label for="f-valor" class="f-label">Valor do imóvel</label>
+              <input id="f-valor" name="valor" type="text" inputmode="numeric" class="money" placeholder="R$ 0">
+            </div>
+            <div class="f-field">
+              <label for="f-financiar" class="f-label">Valor que pretende financiar</label>
+              <input id="f-financiar" name="financiar" type="text" inputmode="numeric" class="money" placeholder="R$ 0">
+            </div>
+          </div>
+
+          <p class="f-section">Renda</p>
+          <div class="f-grid">
+            <div class="f-field">
+              <label for="f-renda" class="f-label">Renda mensal bruta</label>
+              <input id="f-renda" name="renda" type="text" inputmode="numeric" class="money" placeholder="R$ 0">
+            </div>
+            <div class="f-field">
+              <label for="f-tiporenda" class="f-label">Tipo de renda</label>
+              <select id="f-tiporenda" name="tiporenda">
+                <option value="">Selecione</option>
+                <option>Formal (CLT / servidor)</option><option>Informal</option><option>Empresário</option><option>Aposentado ou pensionista</option><option>Autônomo ou profissional liberal</option>
+              </select>
+            </div>
+            <fieldset class="f-field f-full seg seg-sm">
+              <legend class="f-label">Declara Imposto de Renda?</legend>
+              <label><input type="radio" name="ir" id="ir-sim" value="Sim"><span>Sim</span></label>
+              <label><input type="radio" name="ir" id="ir-nao" value="Não"><span>Não</span></label>
+            </fieldset>
+            <div class="f-field f-full">
+              <label for="f-msg" class="f-label">Algo mais que devemos saber?</label>
+              <textarea id="f-msg" name="mensagem" rows="3" placeholder="Ex.: o cliente já tem a carta de crédito aprovada, imóvel na planta, uso do FGTS…"></textarea>
+            </div>
+          </div>
+
+          <label class="consent" for="f-consent"><input type="checkbox" id="f-consent" name="consent" required><span>Autorizo a Hearth a usar estes dados para entrar em contato sobre esta solicitação.</span></label>
+
+          <p class="f-error" id="f-error" role="alert" hidden></p>
+          <button type="submit" class="btn f-submit">Enviar mensagem <span class="arr" aria-hidden="true">→</span></button>
+          <p class="f-fine">Seus dados não ficam salvos no site. A concessão de crédito está sujeita à análise das instituições financeiras.</p>
+        </form>
+
+        <div class="form-done" id="form-done" hidden>
+          <span class="done-ico" aria-hidden="true">✓</span>
+          <h3>Mensagem pronta</h3>
+          <p>Escolha por onde enviar. A mensagem já vai preenchida com os dados do formulário.</p>
+          <div class="done-actions">
+            <a class="btn f-submit" id="send-wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp <span class="arr" aria-hidden="true">→</span></a>
+            <a class="btn btn-outline-light" id="send-mail" href="#">Enviar por e-mail</a>
+          </div>
+          <pre class="done-preview" id="done-preview"></pre>
+          <button type="button" class="link-btn" id="form-back">Editar dados</button>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -694,7 +855,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   document.querySelectorAll('.content > h2, .content > .prose, .content > .pull, .vc > div, .contact-intro, .channels').forEach(function(el){
     el.setAttribute('data-reveal', '');
   });
-  document.querySelectorAll('.desp-block, .vs, .faq').forEach(function(el){ el.setAttribute('data-reveal', ''); });
+  document.querySelectorAll('.desp-block, .vs, .faq, .form-card').forEach(function(el){ el.setAttribute('data-reveal', ''); });
   document.querySelectorAll('.services, .steps, .why, .desp-grid').forEach(function(p){
     Array.prototype.forEach.call(p.children, function(c, i){
       c.setAttribute('data-reveal', '');
@@ -714,6 +875,78 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     });
   } else {
     targets.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* Contact form: validate, mask, then hand off to WhatsApp or e-mail */
+  var form = document.getElementById('lead-form');
+  if (form){
+    var WA = '5541987130593', MAIL = 'hearthconsultoria@gmail.com';
+    var done = document.getElementById('form-done');
+    var err = document.getElementById('f-error');
+    var secDados = document.getElementById('sec-dados');
+    var partnerGroup = form.querySelector('[data-show="parceiro"]');
+    function perfil(){ var r = form.querySelector('input[name=perfil]:checked'); return r ? r.value : ''; }
+    function syncPerfil(){
+      var parceiro = perfil() !== 'Comprador';
+      partnerGroup.hidden = !parceiro;
+      secDados.textContent = parceiro ? 'Dados do cliente' : 'Seus dados';
+    }
+    form.querySelectorAll('input[name=perfil]').forEach(function(r){ r.addEventListener('change', syncPerfil); });
+    syncPerfil();
+
+    var cel = document.getElementById('f-cel');
+    cel.addEventListener('input', function(){
+      var d = cel.value.replace(/\D/g, '').slice(0, 11), o = d;
+      if (d.length > 2) o = '(' + d.slice(0,2) + ') ' + d.slice(2);
+      if (d.length > 3) o = '(' + d.slice(0,2) + ') ' + d.slice(2,3) + ' ' + d.slice(3);
+      if (d.length > 7) o = '(' + d.slice(0,2) + ') ' + d.slice(2,3) + ' ' + d.slice(3,7) + '-' + d.slice(7);
+      cel.value = o;
+    });
+    form.querySelectorAll('.money').forEach(function(m){
+      m.addEventListener('input', function(){
+        var d = m.value.replace(/\D/g, '').replace(/^0+/, '');
+        m.value = d ? 'R$ ' + d.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '';
+      });
+    });
+    form.addEventListener('input', function(e){ if (e.target.classList) e.target.classList.remove('invalid'); });
+
+    var fields = [
+      ['Perfil', function(){ return perfil(); }],
+      ['Imobiliária / corretor', 'f-empresa'],
+      ['Nome', 'f-nome'], ['Celular', 'f-cel'], ['E-mail', 'f-email'],
+      ['Data de nascimento', function(){ var v = document.getElementById('f-nasc').value; return v ? v.split('-').reverse().join('/') : ''; }],
+      ['Precisa de', 'f-objetivo'], ['Tipo de imóvel', 'f-tipo'], ['Cidade do imóvel', 'f-cidade'],
+      ['Valor do imóvel', 'f-valor'], ['Valor a financiar', 'f-financiar'],
+      ['Renda mensal bruta', 'f-renda'], ['Tipo de renda', 'f-tiporenda'],
+      ['Declara IR', function(){ var r = form.querySelector('input[name=ir]:checked'); return r ? r.value : ''; }],
+      ['Mensagem', 'f-msg']
+    ];
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = [];
+      ['f-nome','f-cel','f-email','f-objetivo'].forEach(function(id){
+        var el = document.getElementById(id), v = el.value.trim();
+        var ok = v && (id !== 'f-email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) && (id !== 'f-cel' || v.replace(/\D/g,'').length >= 10);
+        if (!ok){ el.classList.add('invalid'); bad.push(el); }
+      });
+      var consent = document.getElementById('f-consent');
+      if (bad.length){ err.textContent = 'Confira os campos destacados: nome, celular com DDD, e-mail válido e o que você precisa.'; err.hidden = false; bad[0].focus(); return; }
+      if (!consent.checked){ err.textContent = 'Marque a autorização de contato para continuar.'; err.hidden = false; consent.focus(); return; }
+      err.hidden = true;
+      var lines = ['Olá, Hearth! Nova mensagem pelo site:', ''];
+      fields.forEach(function(f){
+        if (f[1] === 'f-empresa' && perfil() === 'Comprador') return;
+        var v = typeof f[1] === 'function' ? f[1]() : document.getElementById(f[1]).value.trim();
+        if (v) lines.push(f[0] + ': ' + v);
+      });
+      var text = lines.join('\n');
+      document.getElementById('done-preview').textContent = text;
+      document.getElementById('send-wa').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text);
+      document.getElementById('send-mail').href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Contato pelo site – ' + document.getElementById('f-nome').value.trim()) + '&body=' + encodeURIComponent(text);
+      form.hidden = true; done.hidden = false;
+      done.querySelector('h3').setAttribute('tabindex','-1'); done.querySelector('h3').focus();
+    });
+    document.getElementById('form-back').addEventListener('click', function(){ done.hidden = true; form.hidden = false; document.getElementById('f-nome').focus(); });
   }
 
   /* Header shadow + gentle parallax on the hero ring */
